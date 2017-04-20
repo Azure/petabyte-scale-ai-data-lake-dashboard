@@ -1,0 +1,228 @@
+﻿html {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+    color: #333;
+    font-family: 'Segoe UI Condensed','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer, hgroup,
+nav, section {
+    display: block;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: 'Segoe UI Condensed','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    color: #000;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+h5 a:link, h5 a:visited, h5 a:active {
+    padding: 0;
+    text-decoration: none;
+}
+
+/* main layout
+----------------------------------------------------------*/
+.content-wrapper {
+    margin: 0 auto;
+    min-width:1620px;
+    max-width: 1620px;
+}
+
+#body {
+    background-color: white;
+    clear: both;
+    padding-bottom: 35px;
+}
+
+header {
+    background-image:url(../Images/header_background.png);
+    height:130px;
+    min-width:1620px;
+}
+
+header .content-wrapper {
+    padding-top: 20px; 
+    padding-bottom: 20px;
+}
+
+footer {
+    clear: both;
+    background-color: #e2e2e2;
+    font-size: .8em;
+    height: 100px;
+}
+
+/* site title
+----------------------------------------------------------*/
+.site-title {
+    color: #ffffff;
+    font-weight: 200;
+    font-size: 46px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.site-subtitle {
+    color: #ffffff;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 1.22;
+    margin: 0;
+}
+
+
+/* page elements
+----------------------------------------------------------*/
+
+/* page titles */
+hgroup.title {
+    margin-bottom: 10px;
+}
+
+hgroup.title h1, hgroup.title h2 {
+    display: inline;
+}
+
+hgroup.title h2 {
+    font-weight: normal;
+    margin-left: 3px;
+}
+
+/********************
+*   Custom Styles   *
+********************/
+
+.diagram-centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.diagram-panel {
+}
+
+.diagram-panel-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.diagram-tile {
+    border: 3px solid #e0e0e0;
+    border-radius: 7px;
+    position:relative;
+    z-index:20;
+}
+
+.diagram-tile-image {
+    display:inline-block;
+    padding:10px;
+}
+
+.diagram-tile-image img {
+    width: 110px;
+}
+
+.diagram-tile-textarea {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.diagram-arrow-space {
+    height: 75px;
+}
+
+#svgContainer { 
+	z-index: 10;
+	position:absolute;
+	opacity: 1;
+}
+
+div {
+    opacity:1;
+}
+
+.ingest-panel {
+    padding-right:100px;
+}
+
+.process-panel {
+    padding-right:25px;
+}
+
+.visualize-panel {
+    padding-left:100px;
+}
+
+.metric {
+    font-size:48px; 
+    text-align:center;
+}
+
+#sourceDataTile img {
+    padding:10px;
+}
+
+#sourceDataTile {
+    padding-bottom:20px;
+}
+
+#powerBiTile {
+    height:135px;
+}
+
+#aasTile, #sqlDwTile {
+    height:175px;
+}

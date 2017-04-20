@@ -1,0 +1,260 @@
+﻿@{
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+    Page.Title = "Petabyte Scale AI Data Lake";
+}
+
+<div id="svgContainer">
+    <svg id="svg-layer" width="0" height="0">
+        <defs>
+            <marker id="endArrow" markerWidth="20px" markerHeight="20px" refX="0" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="rgb(53, 151, 197)" />
+            </marker>
+            <marker id="startArrow" markerWidth="20px" markerHeight="20px" refX="1.5" refY="0" markerUnits="strokeWidth">
+                <path d="M0,3 L1.5,0 L3,3 z" fill="rgb(53, 151, 197)" />
+                <path d="M0,3 L1.5,0 L3,3 z" fill="rgb(53, 151, 197)" />
+            </marker>
+        </defs>
+
+        <path id="path2"
+              d="M0 0"
+              stroke="rgb(53, 151, 197)"
+              fill="none"
+              stroke-width="4px" marker-end="url(#endArrow)" ; />
+        <text id="label2">
+            <tspan dy="0">Federated</tspan>
+            <tspan dy="20">U-SQL Join Query</tspan>
+        </text>
+
+        <path id="path3"
+              d="M0 0"
+              stroke-width="4px"
+              style="stroke:rgb(53, 151, 197); fill:none;" marker-end="url(#endArrow)" />
+        
+        <path id="path4"
+              d="M0 0"
+              stroke-width="4px"
+              style="stroke:rgb(53, 151, 197); fill:none; stroke-width: 4px;" marker-end="url(#endArrow)" />
+        <text id="label4">
+            <tspan dy="0">PolyBase over</tspan>
+            <tspan dy="20">Azure Data Lake Store</tspan>
+        </text>
+
+        <path id="path5"
+              d="M0 0"
+              stroke-width="4px"
+              style="stroke:rgb(53, 151, 197); fill:none;" marker-end="url(#endArrow)" />
+
+        <path id="path6"
+              d="M0 0"
+              stroke-width="4px"
+              style="stroke:rgb(53, 151, 197); fill:none;" marker-end="url(#endArrow)" marker-start="url(#startArrow)" />
+        <text id="label6">
+            <tspan dy="0">Periodic</tspan>
+            <tspan dy="20">U-SQL job</tspan>
+        </text>
+
+        <path id="path7"
+              d="M0 0"
+              stroke-width="4px"
+              style="stroke:rgb(53, 151, 197); fill:none;" marker-end="url(#endArrow)" />
+    </svg>
+</div>
+
+<div id="diagram-container" class="row">
+    <div class="col-md-3 diagram-panel ingest-panel">
+        <div class="diagram-panel-title"><h1>Ingest</h1></div>
+        <div class="diagram-tile" id="sourceDataTile">
+            <img src="~/Images/AzureAppService_small.png" class="diagram-centered-image" />
+            <img src="~/Images/AzureSearch_small.png" class="diagram-centered-image" />
+            <img src="~/Images/Twitter.png" class="diagram-centered-image" />
+            <img src="~/Images/Mobile_small.png" class="diagram-centered-image" />
+            <img src="~/Images/AppInsights_small.png" class="diagram-centered-image" />
+
+            <div style="text-align:center;">
+                <h3>Support Call Logs</h3>
+                <h3>Service Telemetry Data</h3>
+                <h3>Social Data</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-3 diagram-panel process-panel">
+        <div class="diagram-panel-title"><h1>Analyze</h1></div>
+        <div class="diagram-tile" id="azureSqlDbTile">
+            <div class="diagram-tile-image">
+                <img src="~/Images/AzureSqlDb_portal.png" />
+            </div>
+            <div class="diagram-tile-textarea">
+                <center><h3>Azure SQL Database</h3></center>
+                <p>
+                    <svg id="azureSqlCircle" width="200px" height="145px">
+                        <circle cx="100" cy="73" r="55" fill="none" stroke="rgb(220, 237, 245)" stroke-width="5" />
+                        <path d="M0,0" id="azureSqlCirclePath" fill="none" stroke="rgb(127, 185, 66)" stroke-width="5" />
+                        <text x="100" y="73">
+                            <tspan id="azureSqlDbActiveQueries" font-size="48px" text-anchor="middle">-</tspan>
+                            <tspan id="azureSqlDbActiveQueriesLabel" x="100" y="90" text-anchor="middle">active queries</tspan>
+                        </text>
+                    </svg>
+                </p>
+            </div>
+        </div>
+
+        <div class="diagram-arrow-space"></div>
+
+        <div class="diagram-tile" id="adlaTile">
+            <div class="diagram-tile-image"><img src="~/Images/AzureDataLakeAnalytics.png" style="width:130px;" /></div>
+            <div class="diagram-tile-textarea">
+                <center><h3>Azure Data Lake Analytics</h3></center>
+                <svg id="adlaCircle" width="200px" height="145px">
+                    <circle cx="100" cy="73" r="55" fill="none" stroke="rgb(220, 237, 245)" stroke-width="5" />
+                    <path d="M0,0" id="adlaCirclePath" fill="none" stroke="rgb(127, 185, 66)" stroke-width="5" />
+                    <text x="100" y="73">
+                        <tspan id="adlaActiveJobs" font-size="48px" text-anchor="middle">-</tspan>
+                        <tspan id="adlaActiveJobsLabel" x="100" y="90" text-anchor="middle">active jobs</tspan>
+                    </text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="diagram-arrow-space"></div>
+
+        <div class="diagram-tile" id="adlsTile">
+            <div class="diagram-tile-image"><img src="~/Images/AzureDataLakeStore.png" /></div>
+            <div class="diagram-tile-textarea">
+                <center><h3>Azure Data Lake Store</h3></center>
+                <div id="adlsStorage" class="metric">-</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6 diagram-panel visualize-panel">
+
+        <div class="diagram-panel-title"><h1>Reports and Dashboards</h1></div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="diagram-tile" id="powerBiTile">
+                    <div class="diagram-tile-image"><img src="~/Images/PowerBi.png" width="156" /></div>
+                    <div class="diagram-tile-textarea">
+                        <h2>Power BI</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <div class="diagram-arrow-space"></div>
+
+        <div class="row">
+            <div class="col-md-6" style="padding-right:25px">
+                <div class="diagram-tile" id="sqlDwTile">
+                    <div class="diagram-tile-image"><img src="~/Images/DataMarts.png" /></div>
+                    <div class="diagram-tile-textarea">
+                        <center><h3>SQL Data Warehouse</h3></center>
+                        <svg id="sqldwCircle" width="150px" height="125px">
+                            <circle cx="75" cy="62" r="55" fill="none" stroke="rgb(220, 237, 245)" stroke-width="5" />
+                            <path d="M0,0" id="sqldwCirclePath" fill="none" stroke="rgb(127, 185, 66)" stroke-width="5" />
+                            <text x="75" y="62">
+                                <tspan id="sqlDwActiveQueries" font-size="48px" text-anchor="middle">-</tspan>
+                                <tspan id="sqlDwActiveQueriesLabel" x="75" y="80" text-anchor="middle">active queries</tspan>
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="padding-left:25px">
+                <div class="diagram-tile" id="aasTile">
+                    <div class="diagram-tile-image"><img src="~/Images/AzureAnalysisServices.png" /></div>
+                    <div class="diagram-tile-textarea">
+                        <center><h3>Analysis Services</h3></center>
+                        <svg id="aasSquares" width="38px" height="42px" style="display:inline-block;">
+                            <rect class="aasSquare" x="0" y="21" width="10" height="10" fill="rgb(127, 185, 66)"></rect>
+                            <rect class="aasSquare" x="12" y="21" width="10" height="10" fill="rgb(220, 237, 245)"></rect>
+                            <rect class="aasSquare" x="24" y="21" width="10" height="10" fill="rgb(220, 237, 245)"></rect>
+                        </svg>
+                        <div class="metric" style="display:inline-block;text-align:center;width:50px">
+                            <span id="aasQueryLatency">-</span>
+                        </div>
+                        <div id="aasQueryLatencyLabel">
+                            active user sessions
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    // 1. Build the connectors.
+    $(document).ready(function () {
+        var createConnections = function (connectors) {
+
+            connectors.resize($("#svg-layer"), $("#diagram-container"));
+
+            connectors.connectVertically($("#svg-layer"), $("#path2"), $("#azureSqlDbTile"), $("#adlaTile"), $("#label2"));
+            connectors.connectVertically($("#svg-layer"), $("#path5"), $("#aasTile"), $("#powerBiTile"));
+            connectors.connectVertically($("#svg-layer"), $("#path6"), $("#adlaTile"), $("#adlsTile"), $("#label6"));
+
+            connectors.connectHorizontally($("#svg-layer"), $("#path3"), $("#sourceDataTile"), $("#adlsTile"));
+            connectors.connectHorizontally($("#svg-layer"), $("#path4"), $("#adlsTile"), $("#sqlDwTile"), $("#label4"));
+            connectors.connectHorizontally($("#svg-layer"), $("#path7"), $("#sqlDwTile"), $("#aasTile"));
+        }
+
+        $(window).resize(function () {
+            createConnections(Connectors);
+        });
+
+        createConnections(Connectors);
+    });
+
+    // 2. Initialize animations.
+    $(document).ready(function () {
+        Animators.animateCircle($("#azureSqlCircle"), $("#azureSqlCirclePath"), 55);
+        Animators.animateCircle($("#adlaCircle"), $("#adlaCirclePath"), 55);
+        Animators.animateCircle($("#sqldwCircle"), $("#sqldwCirclePath"), 55);
+        Animators.animateTriSquares($("#aasSquares"), $(".aasSquare"));
+    });
+    
+    // 3. Initialize metric auto-refresh features.
+    $(document).ready(function () {
+        function refreshNumber(element, xhr, intervalMs, labelCallback, formatCallback) {
+            $.get(xhr,
+                function (result) {
+                    var formattedResult = result;
+                    if (typeof formatCallback === "function") {
+                        formattedResult = formatCallback(result);
+                    }
+                    element[0].textContent = formattedResult;
+
+                    if (typeof labelCallback === "function") {
+                        labelCallback(result);
+                    }
+                }).fail(function (result) {
+                    element[0].textContent = "-";
+                }).always(function () {
+                    setTimeout(function () { refreshNumber(element, xhr, intervalMs, labelCallback, formatCallback); }, intervalMs);
+                });
+        }
+
+        refreshNumber($("#adlsStorage"), "/home/getadlsstorage", 60000, null, Formatters.formatBytePrefix);
+
+        refreshNumber($("#adlaActiveJobs"), "/home/getadlajobcount", 5000,
+            function (result) { Formatters.formatLabel(result, $("#adlaActiveJobsLabel"), "active job", "active jobs"); });
+
+        refreshNumber($("#azureSqlDbActiveQueries"), "/home/getsqldbactivequerycount", 5000,
+            function (result) { Formatters.formatLabel(result, $("#azureSqlDbActiveQueriesLabel"), "active query", "active queries"); });
+
+        refreshNumber($("#sqlDwActiveQueries"), "/home/getsqldwactivequerycount", 5000,
+            function (result) { Formatters.formatLabel(result, $("#sqlDwActiveQueriesLabel"), "active query", "active queries"); });
+
+        refreshNumber($("#aasQueryLatency"), "/home/getaasusersessioncount", 5000,
+            function (result) { Formatters.formatLabel(result, $("#aasQueryLatencyLabel"), "active user session", "active user sessions"); });
+    });
+   
+</script>
