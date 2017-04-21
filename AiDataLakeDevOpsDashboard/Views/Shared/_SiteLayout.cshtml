@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@Page.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/Content/scripts")
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <p class="site-title">Petabyte Scale AI Data Lake</p>
+            </div>
+        </header>
+        <div id="body">
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>
